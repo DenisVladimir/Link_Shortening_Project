@@ -18,7 +18,5 @@ class URLMap(db.Model):
                 'opinion_view', short=self.short, _external=True))
 
     def from_dict(self, data):
-        for field in ['url', 'custom_id']:
-            if field in data:
-                # Добавляем в соответстствущее поле
-                setattr(self, field, data[field])
+        self.original = data['url']
+        self.short = data['custom_id']
